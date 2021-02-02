@@ -3,3 +3,4 @@
 3. Opened repository in vscode using "code ." command
 4. Learned to commit changes.
 5. push the changes to remote
+6. pull the changes made on remote
