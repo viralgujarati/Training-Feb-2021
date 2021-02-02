@@ -1,2 +1,5 @@
 I have created "Jinal Shah" folder
 and created one file named "demofile.txt" in that particular folder.
+I have commited this file and push it
+i'm adding these lines from the github remote repository.
+and now i am going to pull this for my local repository.
