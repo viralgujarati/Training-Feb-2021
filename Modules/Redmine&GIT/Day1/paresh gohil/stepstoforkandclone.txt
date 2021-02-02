@@ -1,0 +1,4 @@
+Create personal Account
+Create public Repository
+Fork the Repository
+Clone repository on local system
