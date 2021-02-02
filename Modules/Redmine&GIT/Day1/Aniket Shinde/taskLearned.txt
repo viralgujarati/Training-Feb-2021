@@ -1,0 +1,4 @@
+1.I have learned how to create repository.
+2. Clone the repository using "git clone urlofrepository" command
+3. Opened repository in vscode using "code ." command
+4. Learned to commit changes.
