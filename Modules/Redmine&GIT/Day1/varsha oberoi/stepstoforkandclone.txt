@@ -17,5 +17,6 @@ git must be installed in the system.
 15.click on commit-once you click on commit changes will be done local repository
 16. click on more options and select push
 17. remote repository changes move to repository on to github. select file which you want to change 
-18. edit that file.
-19.
+18. edit that file. and commit it from github
+19.then take a pull on the local system.(sourcecontrol moreoption pull button)
+
