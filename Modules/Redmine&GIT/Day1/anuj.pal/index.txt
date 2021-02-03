@@ -1,5 +1,7 @@
 my name is anuj pal.(this is the data which is pushed to the remote/git repository)
 
+today is wednesday.
+
 
 
 
