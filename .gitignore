@@ -350,5 +350,6 @@ MigrationBackup/
 .ionide/
 
 #ignore demoignore
-demoignore/
+demogitignore/
+
 
