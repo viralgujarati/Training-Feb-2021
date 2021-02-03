@@ -1,0 +1,3 @@
+differences between fetch and pull 
+fetch :- it retrieves all the changes from the rremote repository without integrating them with local repository
+pull : it updates your local repository with the changes from the remote repository 
