@@ -351,3 +351,6 @@ MigrationBackup/
 
 #ignore 1.txt.txt
 1.txt.txt/
+
+#ignore 2.txt
+2.txt/
