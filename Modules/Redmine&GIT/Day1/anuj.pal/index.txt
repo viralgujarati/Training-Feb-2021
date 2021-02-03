@@ -1,6 +1,3 @@
-
-
-
 welcome to the Anuj's Kitchen
 
     VEG-ITEMS
@@ -8,5 +5,3 @@ welcome to the Anuj's Kitchen
     2)Chhole
     4)Roti 
     5)Nan
-    6)chhash
-
