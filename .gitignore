@@ -349,8 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-#ignore Day2.1.txt.txt
-Day2.1.txt.txt/
-
-#ignore Day2.2.txt
-Day2.2.txt/
+#ignore ignore
+ignore/
