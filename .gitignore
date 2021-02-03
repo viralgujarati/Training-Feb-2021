@@ -352,6 +352,7 @@ MigrationBackup/
 #ignore demoignore check
 /demogitignore
 
+/Modules/Redmine&GIT/Day2/check.html
 
 
 
