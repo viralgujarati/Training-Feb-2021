@@ -1,8 +1,11 @@
-my name is anuj pal.(this is the data which is pushed to the remote/git repository)
-
-today is wednesday.
 
 
 
+welcome to the Anuj's Kitchen
 
+    VEG-ITEMS
+    1) paneer
+    2)Chhole
+    4)Roti 
+    5)Nan
 
