@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee form</title>
+
+</head>
+<body>
+   <div class="form">
+    <form>
+        <h1>Employee Details</h1>
+        <label>Name : </label>
+        <input type="text" placeholder="Enter name"><br><br>
+        
+        <label>Age :</label>
+        <input type="number" placeholder="Enter Age"><br><br>
+
+        <label>Gender :</label><br>
+        <input type="radio" name="gender" style="display: inline;width: auto;" class="input" id="male" value="male">
+
+        <label for="male">Male</label>
+        <input type="radio" name="gender" style="display: inline;width: auto;"class="input" id="female" value="female">
+        <label for="female">Female</label><br><br>
+
+        <label>Designation :</label>
+        <input type="text" placeholder="Software Engineer"><br><br>
+
+        <label>Salary :</label>
+        <input type="text" placeholder="20000"><br><br>
+
+        <label for="city">Location :</label>
+        <select id="city" name="city">
+            <option value="Default">Select</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Ganghinagar">Gandhinagar</option>
+            <option value="Rajkot">Rajkot</option>
+            <option vlaue="Junagadh">Junagadh</option>
+            <option value="Baroda">Baroda</option>
+            <option value="Surat">surat</option>
+        </select><br><br>
+
+        <label>Email ID :</label>
+        <input type="email" placeholder="eg. xyz@gmail.com"><br><br>
+
+        <label>Date Of Joining :</label>
+        <input type="date" class="dist" ><br><br>
+
+        <label>Contact Number :</label>
+        <input type="text" class="dist" placeholder="eg. 9106612756"><br><br>
+
+        <input type="submit" id="submit"value="submit">
+
+    </form>
+   </div>
+</body>
+</html>
