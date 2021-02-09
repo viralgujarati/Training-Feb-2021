@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marksheet using html tables student</title>
+    <title> Responsive menu list</title>
+    <link rel="stylesheet" type="text/css" href="../styles.css">
     <style>
         
         thead {color: green;}
@@ -38,17 +40,50 @@
          margin: 30px;
           }
         </style>
-
-    <center>
-        <h1><u>C.U.Shah University</u></h1>
-        <h1>Student Report Card</h1>
-    </center>
 </head>
-<center>
-<body style="background-color:powderblue;">
-    
-    
-    <h2>Deatil Informations</h2>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <h2><u>My Training Works</u></h2><br><br>
+           
+            <div id="logo"><img src="logo.png" ></div>
+        </div>
+        <div id="nav">
+            <a href="menulist.html" >Html</a>
+            <a href="https://www.cushahuniversity.ac.in/" >CSS</a>
+            <a href="https://www.cushahuniversity.ac.in/contact_us.php">Bootstrap</a>
+        </div>
+        <div id="container">
+            <div id="left"> <p class="head">HTML Works</p><hr color="black"><br><br>
+            <ul>
+               <li style="list-style-type: none;">Day 1
+               <ul>
+                   <li>Assighnment</li>
+                   <li>Practices:-</li>
+                   <ol>
+                       <li><a href="day1/article.html">article news</a></li>
+                       <li><a href="day1/HR.html">Hr manager list</a></li>
+                       
+                       <li><a href="day1/duplogin.html">Login Form</a></li>
+                       <li><a href="day1/studentcard.html">student report card</a></li>
+                   </ol>
+               </ul>
+            </li>
+
+             
+
+            </ul>
+            
+            
+            </div>
+            <div id="right" style="overflow-y: scroll; overflow-x: scroll;">
+                
+                <center>
+                    <h1><u>C.U.Shah University</u></h1>
+                    <h1>Student Report Card</h1><br>
+                    <h1>Detail Information:</h1>
+              
+                
     <table border="1px">
         <tr>
             <td>Name:</td>
@@ -63,7 +98,8 @@
             <td>2020</td>
         </tr>
     </table>
-    <h2>Report Card</h2>
+    <h1> Report card</h1>
+  
         <table border="1px">
             <thead>
               <tr>
@@ -123,6 +159,13 @@
             <td></td>
         </tr>
     </table>
-</body>
 </center>
+    </div>
+           
+        </div>
+        <div id="footer">
+            <h1>Copyright by C.U.Shah University</h1>
+        </div>
+    </div>
+</body>
 </html>

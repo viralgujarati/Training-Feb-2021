@@ -45,15 +45,15 @@
     text-align: center;
     padding-top: 40px;
 }
-h2, h3{
+h2{
     font-size: xx-large;
     text-align: center;
-    float:right;
+    
    
 }
 a{
-    font-size: x-large;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+  
     font-style: italic;
     color: rgb(8, 8, 8);
     font-weight: 400;
@@ -65,4 +65,14 @@ a{
 }
 .about{
     font-size: x-large;
+}
+ul{
+    list-style-type: square ;
+    font-size: xx-large;
+  
+    font-style: italic;
+    color: rgb(8, 8, 8);
+    font-weight: 400;
+    padding: 30px;
+    
 }
