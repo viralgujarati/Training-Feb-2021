@@ -3,24 +3,26 @@
   <head>
     <style>
     *{
+        
         padding: 0;
         margin: 0;
+        box-sizing: border-box;
+
       }
 
       body{
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial;
       }
 
       nav{
-        background:red;
+        background: #1abc9c;
         height: 80px;
         width: 100%;
       }
 
       label.logo{
-        background-color:powderblue;
+        background-color:honeydew;
         border: groove;
-        cursor: grab;
         letter-spacing: 1px;
         font-size: 40px;
         line-height: 80px;
@@ -28,13 +30,16 @@
       }
 
       nav ul{
+        display: flex;
         float: right;
         margin-right: 50px;
+
       }
 
       nav ul li{
         display: inline;
         line-height: 80px;
+        text-align: center;
         margin: 0 5px;
       }
 
@@ -42,45 +47,60 @@
         color: black;
         font-size: 20px;
         padding:10px; 
+
       }
      
-    
+      
         nav ul li a{
         font-size: 15px;
         border: solid;
+
         color:black;      
        }
       
       #sidebar-left{
             float:left;
             width:15%;
-            background-color:yellow;
+            background-color:lightgrey;
         }
     
         #main{
             float:left;
+            display: flex;
             width:70%;
-            background-color: khaki;
+            background-color:skyblue;
+            
+
         }
     
         #sidebar-right{
             float:left;
-            width: 200PX;
-            background-color:yellow;
+            width: 15%;
+      
+            background-color:lightgrey;
         }
+
     
         #footer{
             clear:both;
             height: 70px;
-            width: 100%;
-            text-align: center;
+            width: auto;
+            text-align:center;
             background-color: palevioletred;
+        
+            
+
+
         }
     
         #sidebar-left, #main, #sidebar-right{
-            min-height: 500px;			
-        }
+            min-height: 850px;		
+            display: flex;	
+            
 
+        }
+        
+        
 
     </style>
 
@@ -89,24 +109,23 @@
     <nav>
      
       </label>
-      <label class="logo"><a href="home.html">RADIXWEB</a></label>
+      <label class="logo"><a href="My_website.html">RADIXWEB</a></label>
       <ul>
-        <li><a href="home.html">HOME</a></li>
-        <li><a href="About.html">ABOUT</a></li>
-        <li><a href="Contact.html">CONTACT</a></li>
+        <li><a href="html5.html">HTML5</a></li>
+        <li><a href="css.html">CSS</a></li>
+        <li><a href="Contact.html">BOOTSTRAP</a></li>
       </ul>
       
     </nav>
 
 
-    <div id="sidebar-left">Left</div>
+    <div id="sidebar-left"><h3>Menu  :)</h3></div>
 
-    <div id="main">Main Page</div>
+    <div id="main">This is main page</div>
 
     <div id="sidebar-right">Right</div>
 
-    <div id="footer">Footer</div>
-
+    <div id="footer">Copyright Viral Gujarati</div>
 
   </body>
 </html>
