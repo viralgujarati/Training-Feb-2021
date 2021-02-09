@@ -21,6 +21,9 @@
     background-color: rgb(156, 73, 80);
     margin-top: 10px;
 }
+#nav a:hover,a:hover{
+    background-color: white;
+}
 #container{
     
     margin-top: 10px;
