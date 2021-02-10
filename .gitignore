@@ -347,12 +347,4 @@ healthchecksdb
 MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
-.ionide/
-#ignore demoignore
-demoignore/
-Modules/CSS/Day5/Assignment/img1.jpg
-Modules/CSS/Day5/Assignment/Layout.html
-Modules/CSS/Day5/practices/Float_div.html
-Modules/CSS/Day5/practices/overflow_properties.html
-Modules/CSS/Day5/practices/practices_Position.html
-Modules/CSS/Day5/video/pesudo.html
+
