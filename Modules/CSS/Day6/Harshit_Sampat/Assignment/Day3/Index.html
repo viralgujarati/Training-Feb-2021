@@ -42,7 +42,7 @@ header {
 
 footer {
   background-color: rgb(196, 29, 29);
-  padding: 05px;
+  padding: 10px;
   text-align: center;
   color: rgb(240, 119, 119);
   bottom: 0px;
@@ -50,19 +50,19 @@ footer {
 
 }
 
-ul {
+.ul1 {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
 }
 
-li {
+.li1 {
   float:left;
   left :50px
 }
 
-li a {
+.li1 a {
   display: inline-block;
   color: white;
   text-align: center;
@@ -71,20 +71,26 @@ li a {
 }
 section{
   height: 470px;
-  background-color: burlywood;
+  background-color: rgb(255, 175, 70);
   margin-left: 150px;
   text-align: center  ;
 }
-ol{  
+.ul li{  
     color:white;
+    padding: 0px;
+    margin-top: 0px;
 }
+
 
 li a:hover {
   background-color: rgb(98, 104, 82);
 }
 iframe{
-    height: 400px;
-    width: 100%;
+    height: 445px;
+    width: 99%;
+}
+ol{
+  padding: 0px;
 }
 ol.a{
     font-style: normal;
@@ -99,10 +105,10 @@ ol.a{
 <body>
  <header>   
 <nav>
-<ul>
-  <li><a href="Index.html">HTML</a></li>
-  <li><a href="About.html">CSS</a></li>
-  <li><a href="Contact.html">JavaScript </a></li>
+<ul class="ul1">
+  <li class="li1" class=""><a href="Index.html">HTML</a></li>
+  <li class="li1"><a href="About.html">CSS</a></li>
+  <li class="li1"><a href="Contact.html">JavaScript </a></li>
 </ul>
 </nav>
 </header>
@@ -110,18 +116,23 @@ ol.a{
 <div class="sidenav">
     
     <p style="text-align: center; color: blanchedalmond;"> Navigate menu bar to visit different page</p>
-    
-        <a href="#article.html">Articale</li><br>
-        <a href="#Horizontalmenu.html">Horizontal</li><br>
-        LoginForm</li><br>
-        orderand unorder</li><br>
-        report-card</li>
-    
+  <ol>
+    <ul class="ul">
+      
+        <li>Day 3<li>
+        <li><a href="report_card.html" target="art">Task1</a></li><br>
+        <li><a href="order&unorder.html" target="art">Task2</a></li><br>
+        <li><a href="Login_form.html" target="art">Task3</a></li><br>
+        <li><a href="article.html " target="art">Task4</a></li><br>
+        <li><a href="Horizontalmenu.html" target="art">Task5&6</a></li>
+    </ul>
+  </ol>
 
 </div>
 <section>
   <article>
     It's a Layout to make articles</article>
+    <iframe href="" name="art">
   </section>
 <footer>
     <p>Footer</p>
