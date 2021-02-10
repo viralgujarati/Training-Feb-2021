@@ -37,6 +37,16 @@ li{
     font-variant: initial;
 
 }
+
+.li{
+            list-style-type: none;
+            font-size: xx-large;
+        }
+        .righttable{
+            position: absolute;
+            top: 250px;
+
+        }
     </style>
 </head>
 <body>
@@ -49,28 +59,40 @@ li{
             <div id="parth"><img src="../parth.PNG" style="height: 112px; padding-left: 10px;"></div>
         </div>
         <div id="nav">
-            <a href="menulist.html" >Html</a>
-            <a href="https://www.cushahuniversity.ac.in/" >CSS</a>
+            <a href="../menulist.html" >Html</a>
+            <a href="../css.html" >CSS</a>
             <a href="https://www.cushahuniversity.ac.in/contact_us.php">Bootstrap</a>
         </div>
         <div id="container">
             <div id="left"> <p class="head">CSS Works</p><hr color="black"><br><br>
-            <ul>
-               <li style="list-style-type: none;">Day 2
-               <ul>
-                <li>Assighnment
-                    <ol>
-                        <li> <a href="day2/resume.html">Resume </a></li>
+                <table class="righttable" border="1px solid black" style="padding: 0px; margin-left: 25px; height: 500px; width: 350px;">
+                    <tr>
+            <ul><td>
+               <li  class="li" style="list-style-type: none;">Day 2
+               <ul></td></tr>
+                <tr>
+                    <td>
+                <li  class="li">Assighnment</td>
+                </tr>
+                <tr>
+                    <ol><td>
+                        <li class="li"> <a href="../day2/resume.html">Resume </a></li>
+                    </td>
+                </tr>
                     </ol>
-                    </li>
-                    <li>Practices:-</li>
-                    <ol>
-                        <li><a href="day1/article.html">City Lists</a></li>
-                        <li><a href="day1/HR.html">Paragraph Border</a></li>
+                    <tr>
+                    </li><td>
+                    <li  class="li">Practices:-</li>
+                </td>
+            </tr>
+                    <ol><td>
+                        <li  class="li"><a href="../day2/city.html">City Lists</a></li>
+                        <li  class="li"><a href="../day2/border.html">Paragraph Border</a></li>
                         
-                        <li><a href="day1/duplogin.html">Universal selector</a></li>
-                        <li><a href="day1/studentcard.html">Markup</a></li>
-                     
+                        <li  class="li"><a href="../day2/universal.html">Universal selector</a></li>
+                        <li  class="li"><a href="../day2/mark_up.html">Markup</a></li>
+                    </td>
+                    </tr>
                     </ol>
                     </ul>
             </li>
@@ -79,7 +101,7 @@ li{
 
             </ul>
             
-            
+        </table>
             </div>
             <div id="right" style="overflow-y:scroll;">
                 <div>
