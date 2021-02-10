@@ -9,6 +9,8 @@
 #header{
     height: 110px;
     background-color: rgb(115, 121, 120);
+  
+    
 }
 #parth{
     height: 50px;
@@ -17,9 +19,11 @@
     top : 12px;
 }
 #nav{
-    height: 50px;
+    
     background-color: rgb(156, 73, 80);
     margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 #nav a:hover,a:hover{
     background-color: white;
@@ -35,12 +39,15 @@
     height: 600px;
     background-color: rgb(230, 183, 139);
     float: left;
+
+  
 }
 #right{
     float: right;
     width:74%;
     height: 600px;
     background-color: rgb(88, 87, 78);
+  
 }
 #footer{
     height: 60px;
@@ -84,7 +91,21 @@ ul{
     font-size: 200%;
 }
 .leftdiv{
-    font-size: xx-large;
+    font-size: x-large;
 
 
+}
+@media ( max-width:600px)
+{
+    #left{
+        width: 100%;
+    }
+    #right{
+        width: 100%;
+    }
+    #nav a{
+        width: 100%;
+        padding: 50px;
+        display: block;
+    }
 }
