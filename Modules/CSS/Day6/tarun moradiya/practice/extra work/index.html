@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /><script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>Band</title>
@@ -14,19 +14,24 @@
         <div class="header">
             <nav>
                 <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#band">BAND</a></li>
-                    <li><a href="#tour">TOUR</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-                    <li class="dropdown">
-                        <span class="dropdown-button">MORE</span>
-                        <div class="dropdown-contex">
-                            <ul>
-                                <li>Merchandise</li>
-                                <li>Extras</li>
-                                <li>Media</li>
-                            </ul>
-                        </div>
+                    <li class="nav-button"><a href="#home">HOME</a></li>
+                    <li class="nav-dropdown">
+                        <i class="fa fa-bars"></i>
+                        <ul class="nav-dropdown-content">
+                            <li class="nav-button"><a href="#band">BAND</a></li>
+                            <li class="nav-button"><a href="#tour">TOUR</a></li>
+                            <li class="nav-button"><a href="#contact">CONTACT</a></li>
+                            <li class="dropdown nav-button">
+                                <a class="dropdown-button">MORE</a>
+                                <div class="dropdown-contex">
+                                    <ul>
+                                        <li>Merchandise</li>
+                                        <li>Extras</li>
+                                        <li>Media</li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -56,7 +61,7 @@
         </div>
         <div id="band">
             <h1>THE BAND</h1>
-            <h4>we love muh4/h4>
+            <h4>we love music</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident voluptatem beatae nesciunt. Praesentium laboriosam deleniti exercitationem aliquam enim suscipit consectetur delectus molestias at sapiente! Sed dolore pariatur explicabo beatae accusamus corporis harum laboriosam recusandae dolores assumenda ratione est asperiores amet praesentium, corrupti animi minima. Distinctio cupiditate aut vitae sapiente rerum id repellat libero accusantium dolor similique, nesciunt in fuga, ad alias illo ducimus omnis dolorum velit nam modi sed cum possimus soluta. Cumque, quibusdam voluptas aliquid assumenda reprehenderit sunt rem possimus, cum esse ipsa vel aperiam eum. Quidem dolores nobis, officiis accusamus quae, impedit ducimus ipsum minus sequi sit facere!</p>
             <div class="boxes">
                 <div class="box">
@@ -73,38 +78,40 @@
                 </div>
             </div>    
         </div>
-        <div id="tour">
-            <h1>Tour Dates</h1>
-            <h4>Remember to book your tickets</h4>
-            <div class="tickets">
-                <div class="monthly">
-                    <div class="ticket-list"></div>
-                    <div class="ticket-list"></div>
-                    <div class="ticket-list"></div>
-                </div>
-                <div class="cards">
-                    <div class="card">
-                        <div class="card-image"><img src="assets/images/newyork.jpg" alt="newyork"></div>
-                        <div class="card-body">
-                            <h4>Fri 27 Nov 2021</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, dolorum.</p>
-                            <button>Buy Tickets</button>
-                        </div>
+        <div class="tour-container">
+            <div id="tour">
+                <h1>Tour Dates</h1>
+                <h4>Remember to book your tickets</h4>
+                <div class="tickets">
+                    <div class="monthly">
+                        <div class="ticket-list">September </div>
+                        <div class="ticket-list">October</div>
+                        <div class="ticket-list">November</div>
                     </div>
-                    <div class="card">
-                        <div class="card-image"><img src="assets/images/paris.jpg" alt="paris"></div>
-                        <div class="card-body">
-                            <h4>Fri 27 Nov 2021</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, dolorum.</p>
-                            <button>Buy Tickets</button>
+                    <div class="cards">
+                        <div class="card">
+                            <div class="card-image"><img src="assets/images/newyork.jpg" alt="newyork"></div>
+                            <div class="card-body">
+                                <h4>Fri 27 Nov 2021</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, dolorum.</p>
+                                <button>Buy Tickets</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-image"><img src="assets/images/sanfran.jpg" alt="sanfrancisco"></div>
-                        <div class="card-body">
-                            <h4>Fri 27 Nov 2021</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, dolorum.</p>
-                            <button>Buy Tickets</button>
+                        <div class="card">
+                            <div class="card-image"><img src="assets/images/paris.jpg" alt="paris"></div>
+                            <div class="card-body">
+                                <h4>Fri 27 Nov 2021</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, dolorum.</p>
+                                <button>Buy Tickets</button>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"><img src="assets/images/sanfran.jpg" alt="sanfrancisco"></div>
+                            <div class="card-body">
+                                <h4>Fri 27 Nov 2021</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, dolorum.</p>
+                                <button>Buy Tickets</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -121,23 +128,25 @@
                         Email: mail@email.com</p>
                 </div>
                 <div class="contact-form">
-                    <input type="text" id="name">
-                    <input type="email" id="email">
-                    <input type="text" id="msg">
+                    <input type="text" id="name" placeholder="Name">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="text" id="msg" placeholder="Message">
                     <button type="submit">SEND</button>
                 </div>
             </div>
-            <div class="map">
+        </div>
+        <div class="map">
                 <img src="assets/images/map.jpg" alt="map">
+        </div>
+        <footer>
+            <div class="footer">
+                <i class='fab fa-facebook-square'></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+                <p>&copy;Copyright Tarun Moradiya.</p>
             </div>
-        </div>
-        <div class="footer">
-            <i class='fab fa-facebook-square'></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-linkedin"></i>
-            &copy;Copyright Tarun Moradiya.
-        </div>
+        </footer>
     </div>
 </body>
 </html>
