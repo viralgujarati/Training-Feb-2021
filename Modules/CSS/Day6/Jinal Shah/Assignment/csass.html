@@ -18,6 +18,12 @@
             color: blanchedalmond;
         }
 
+        #header1{
+            background-color:black;
+            text-align: center;
+            color: blanchedalmond;
+        }
+
         #sidebar-left{
             float:left;
             width:15%;
@@ -26,6 +32,16 @@
             padding: 20px;
             font-size: medium;
             
+        }
+
+        #sidebar-left1{
+            float:left;
+            width:15%;
+            background-color:red;
+            height: 500px;
+            padding: 20px;
+            font-size: larger;
+    
         }
         
         #main{
@@ -36,6 +52,7 @@
             font-size: 15px;
             color: black;
             overflow: scroll;
+            overflow-x: hidden;
         }
 
         footer{
@@ -46,6 +63,7 @@
             color: blanchedalmond;
             font-size: large;
             padding-top: 20px;  
+            overflow-x: hidden;
         }
         footer.abc{
             height: 20%;
@@ -70,23 +88,12 @@
                 padding: 14px 20px;
                 margin-left: 130px;
                 text-decoration: none;
-        }
-
-        * {
-                box-sizing: border-box;
-        }
-
-        #header{
-            background-color: black;
-            text-align: center;
-            padding: 20px;
-            color: blanchedalmond;
-        }
-
-        
-        
+        }        
        
-        
+        #sidebar-left1 a{
+            color: cornsilk;
+        }
+
     </style>
 
 </head>
@@ -124,16 +131,16 @@
               <h4><a href="csass.html">Assignment</a></h4>
         </div>
         <div id="main">
-            <div id="header">
+            <div id="header1">
                 <img src="apple.jpg" style="width:70px; height:50px; padding-left: 18px;">
             </div>
-            <div id="sidebar-left">
+            <div id="sidebar-left1">
                 <a href="https://www.apple.com/in/">Home</a><br/><br/><br/>
                 <a href="https://www.apple.com/in/newsroom/">About Us</a><br/><br/><br/>
                 <a href="https://support.apple.com/en-in/contact">Contact Us</a>    
             </div>
             <div id="main">Main</div>
-            <div id="footer">Footer</div>
+            <footer><div class="xyz">Footer</div></footer>
         </div>
         <footer><div class="abc">Footer</div></footer>
     </div>

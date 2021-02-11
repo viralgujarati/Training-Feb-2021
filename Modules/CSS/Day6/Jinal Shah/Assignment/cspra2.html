@@ -72,23 +72,45 @@
                 text-decoration: none;
         }
 
-        #main div.pc{
-                width: 425px;
-                height: 175px;
-                border: 2 px solid chartreuse;
-                background-color: darkmagenta;
-                color: white;
+        .static{
+            position: static;
+            display: block;
+            border: 1px solid rgb(243, 18, 18);    
+            background-color: rgb(142, 175, 212);
         }
-        #main div.c{
-                display: inline-block;
-                width: 100px;
-                height: 100px;
-                padding: 5px;
-                border: 1px solid rgb(243, 18, 18);    
-                background-color: rgb(142, 175, 212);
-                margin-top: 30px;
-                margin-left: 15px;
+        .relative{
+            position: relative;
+            display: block;
+            border: 1px solid rgb(243, 18, 18);    
+            background-color: rgb(142, 175, 212);
         }
+        .absolute{
+            position: absolute;
+            display: block;
+            border: 1px solid rgb(243, 18, 18);    
+            background-color: rgb(142, 175, 212);
+            float: right;
+            top:80px;
+        }
+        .fixed{
+            position: fixed;
+            display: block;
+            border: 1px solid rgb(243, 18, 18);    
+            background-color: rgb(142, 175, 212);
+        }
+        .sticky{
+            position: sticky;
+            display: block;
+            border: 1px solid rgb(243, 18, 18);    
+            background-color: rgb(142, 175, 212);
+        }
+        .abc1{
+            position: absolute;
+            display: block;
+            border: 1px solid rgb(243, 18, 18);    
+            background-color: rgb(142, 175, 212);
+        }
+
         
     </style>
 
@@ -127,11 +149,15 @@
               <h4><a href="csass.html">Assignment</a></h4>
         </div>
         <div id="main">
-            <div class="pc"> 
-                <div class="c">Div class 1</div>
-                <div class="c">Div class 2</div>
-                <div class="c">Div class 3</div>
-            </div> 
+            <div class="static">Static</div><br/>
+            <div class="relative">relative
+                <div class="absolute">Inside Relative class</div>
+            </div><br/>
+            <div class="absolute">Absolute</div><br/><br/>
+            <div class="fixed">Fixed<br/><br/><br/><br/><br/><br/><br/>
+            <div class="abc1">Inside fixed class</div>
+            </div><br/><br/>
+            <div class="sticky">sticky</div>
         </div>
         <footer><div class="abc">Footer</div></footer>
     </div>
