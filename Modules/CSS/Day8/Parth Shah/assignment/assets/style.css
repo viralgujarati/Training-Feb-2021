@@ -1,4 +1,5 @@
 .item1 { grid-area: header; }
+.item4 { grid-area: nav;}
 .item2 { grid-area: menu; }
 .item3 { grid-area: main; }
 
@@ -8,6 +9,7 @@
   display: grid;
   grid-template-areas:
     'header header header header header header'
+    'nav nav nav nav nav nav'
     'menu main main main main main'
     'menu footer footer footer footer footer';
   grid-gap: 8px;
@@ -22,11 +24,12 @@
   font-size: 30px;
 }
 .item3{
-    height: 900px;
+    max-height: 1500px;
+    width: 1490px;
 }
 .item1{
-    background-image: url(../images/bg6.jpg);
-   font-size: xx-large;
+    background-image: url(../images/bg10.jpg);
+  
    color: whitesmoke;
 }
 
@@ -36,6 +39,9 @@
 .item2{
    background-image: url(../images/bg6.jpg);
    color: beige;
+   
+   width :500px;
+   
 }
 .item5{
     background-color: black;
@@ -48,6 +54,9 @@
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
     
   }
   
@@ -72,13 +81,25 @@
   }
   .menuli{
     text-align: left;
-    font-size: xx-large;
+    font-size: 40px;
    
   }
-  img{
+  #parth{
    
     position: absolute;
     right: 30px;
     top: 15px;
-    height:240px;
+    height:170px;
   }
+  .sidenav{
+    color :rgb(58, 221, 17)
+
+  }
+   a:hover {
+    background-color: #000408;
+  }
+  #imgart{
+    margin:24px 0 12px; 
+    width: 300px;
+    height:300px;
+}
