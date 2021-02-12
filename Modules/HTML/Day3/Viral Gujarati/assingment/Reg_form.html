@@ -23,10 +23,10 @@
 
         <fieldset>
         <label>Name : </label>
-        <input type="text" placeholder="Enter name"><br><br>
+        <input type="text" placeholder="Enter name" required><br><br>
         
         <label>Age :</label>
-        <input type="number" placeholder="Enter Age"><br><br>
+        <input type="text" placeholder="Enter Age" maxlength="2"  required><br><br>
 
         <label>Gender :</label><br>
         
@@ -37,10 +37,10 @@
         <label for="female">Female</label><br><br>
 
         <label>Designation :</label>
-        <input type="text" placeholder="Software Engineer"><br><br>
+        <input type="text" placeholder="Software Engineer" required><br><br>
 
         <label>Salary :</label>
-        <input type="text" placeholder="20000"><br><br>
+        <input type="text" placeholder="20000" maxlength="5" required><br><br>
 
         <label for="city">Location :</label>
         <select id="city" name="city">
@@ -54,15 +54,15 @@
         </select><br><br>
 
         <label>Email ID :</label>
-        <input type="email" placeholder="eg. xyz@gmail.com"><br><br>
+        <input type="email" placeholder="eg. xyz@gmail.com" required><br><br>
 
         <label>Date Of Joining :</label>
-        <input type="date" class="dist" ><br><br>
+        <input type="date" class="dist" required><br><br>
 
         <label>Contact Number :</label>
-        <input type="number" class="dist" placeholder="9106612756"><br><br>
+        <input type="tel" class="dist" placeholder="9106612756" maxlength="10" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required><br><br>
 
-        <input type="submit" id="submit"value="submit"></fieldset>
+        <input type="submit" id="submit" value="submit" ></fieldset>
 
     </form>
    </div>
