@@ -15,13 +15,13 @@
       padding: 10px;
     }
     .grid-container > div {
-      background-color: rgb(126, 2, 2);
+      background-color: rgb(231, 106, 106);
       text-align: center;
       padding: 20px 0;
       font-size: 30px;
     }
     header {
-      background-color: rgba(87, 26, 7, 0.863);
+      background-color: rgba(221, 138, 113, 0.863);
       margin-top: -40px;
       padding: 25px;
       text-align: center;
@@ -34,12 +34,12 @@
             margin-left: 0px;
         }
    .ul1 li{
-            background: rgba(87,26,7,0.863);
+            background: rgba(216, 146, 125, 0.863);
             display: inline;
         }
    .ul1 a{
             background-color: #e0cfcf;
-            color: rgb(102, 24, 24);
+            color: rgb(197, 108, 108);
             display: inline;
             border: 1px solid rgb(18, 10, 59);
             border-radius: 40px 40px;
@@ -48,16 +48,18 @@
             text-decoration: none;
         }
     ol li{
-        color: darkgray;
+        color: rgb(215, 232, 233);
+        margin-bottom: 20px;
     }
     .ol a{ 
         background-color: #e0cfcf;
-            color: rgb(102, 24, 24);
+            color: rgb(216, 93, 93);
             display: inline;
-            border: 1px solid rgb(18, 10, 59);
+            border: 1px solid rgb(122, 102, 221);
             border-radius: 40px 40px;
             padding: 5px 15px 5px 15px;
             font-size:medium;
+            margin-inline-end: auto;
             text-decoration: none;
         
     }
@@ -68,7 +70,7 @@
       margin-left: -100px;
       padding: 20px;
       width: 98%;
-      background-color: rgb(122, 15, 8);
+      background-color: rgb(233, 157, 151);
       height: 660px; 
     }
 
@@ -105,9 +107,10 @@
         background-color: rgb(227, 236, 227);
     }
     iframe{
-        background-color: coral;
-        height:fit-content;
-        width:fit-content;
+        background-color: rgb(204, 91, 134);
+        
+        height: auto;
+        width:auto;
     }
     img{
         border: 1px solid black;
