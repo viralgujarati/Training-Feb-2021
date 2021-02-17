@@ -1,37 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card</title>
 </head>
 <body>
 
-<h1>The table element</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Roll No.</th>
-    <th>Year of passing</th>
-    <th>Subject</th>
-    <th>Marks</th>
+    <P style="text-align:center; font-size: 40px;color: blue;"><b>Student Report Card</b> </P>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
 
-  </tr>
-  <tr>
-    <td>Tarun</td>
-    <td>12345</td>
-    <td>2016</td>
-    <td>Maths</td>
-    <td>80</td>
+        th, tr, td {
+            text-align: center;
+        }
+       
 
-  </tr>
- 
-  
-</table>
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 
+    <table style="width:40%" class="center">
+        <tr>
+            <th bgcolor="pink">Name</th>
+            <td colspan="2">Tarun Patidar</td>
+        </tr>
+        <tr>
+            <th bgcolor="pink">Erollment No</th>
+            <td colspan="2">1234</td>
+        </tr>
+       
+
+        </table><br/>
+
+        <table id="t01" style="width:40%" class="center">
+            <tr>
+                <th bgcolor="pink">Subject</th>
+                <th bgcolor="pink">Marks</th>
+                
+
+            </tr>
+            <tr>
+
+                <td bgcolor="pink">Maths</td>
+                <td>70</td>
+                
+            <tr>
+
+                <td bgcolor="pink">Physics</td>
+                <td>72</td>
+            </tr>
+            <tr>
+
+                <td bgcolor="pink">Chemistry</td>
+                <td>74</td>
+                
+            </tr>
+           
+        </table>
 </body>
 </html>
 
