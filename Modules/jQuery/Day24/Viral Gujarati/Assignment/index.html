@@ -13,7 +13,7 @@
 
     <div class="container">
         <div class="p-3">
-            <h2 class="text-center m-2 text-success">Click Below Button to get result in one table</h2>
+            <h2 class="m-1 text-success">Click Below Button to get result in one table</h2>
         </div>
 
         <button class="btn btn-dark p-2 m-2" >Click Me!</button>
@@ -42,6 +42,7 @@
                     for(i of data.data){
                         $("#entry").append("<tr><td>"+i.id+"</td><td>"+i.name+"</td><td>"+i.email+"</td><td>"+i.gender+"</td><td>"+i.status+"</td><td>"+i.created_at+"</td><td>"+i.updated_at+"</td></tr>")
                     }
+                    
                 }
             })
         })
