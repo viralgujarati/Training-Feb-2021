@@ -63,9 +63,9 @@ WHERE HireDate BETWEEN '1987-06-01' AND '1987-07-30';
 
 /*  Write a query to display the current date in the following format. */
 
-SELECT CONVERT(varchar, getdate(), 100);
+ select RIGHT(CONVERT(varchar, GETDATE()), 9), CONVERT(varchar, GETDATE(),107)
 
-
+ 
 /*Write a query to get the FirstName, LastName who joined in the month of June.   */
 
 SELECT FirstName,LastName,HireDate FROM Employees
