@@ -276,9 +276,9 @@ ORDER BY COUNT(s.SalesPersonId) DESC
 		  less than the invoice price.)*/
 
 
-SELECT sp.salespersonid, sp.name,
+SELECT sp.SalesPersonId, sp.Name,
         SUM(ISNULL(w.basesalaryformonth, 0) + ISNULL(((c.askprice - c.invoiceprice) * 5 / 100), 0)) [Gross Pay]
-    FROM SalesPerson sp
+    FROM SalesPersons sp
     LEFT JOIN Sales s ON s.SalesPersonID = sp.SalesPersonID
     LEFT JOIN Cars c ON c.VIN = s.VIN
     RIGHT JOIN WorkSat w ON w.SalesPersonID = sp.SalesPersonID
@@ -286,9 +286,9 @@ SELECT sp.salespersonid, sp.name,
     GROUP BY sp.SalesPersonID, sp.Name
     ORDER BY sp.SalesPersonID;
 
-SELECT sp.salespersonid, sp.name,
+SELECT sp.SalesPersonId, sp.Name,
         SUM(ISNULL(w.basesalaryformonth, 0) + ISNULL(((c.askprice - c.invoiceprice) * 5 / 100), 0)) [Gross Pay]
-    FROM SalesPerson sp
+    FROM SalesPersons sp
     LEFT JOIN Sales s ON s.SalesPersonID = sp.SalesPersonID
     LEFT JOIN Cars c ON c.VIN = s.VIN
     RIGHT JOIN WorkSat w ON w.SalesPersonID = sp.SalesPersonID
