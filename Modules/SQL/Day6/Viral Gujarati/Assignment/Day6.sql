@@ -312,7 +312,7 @@ WHERE Salary > (SELECT AVG(Salary) FROM Employees);
 /*Find the names (first_name, last_name), salary of the employees whose salary is equal to the minimum salary for their job grade. */
 SELECT FirstName, LastName, Salary
 FROM Employees
-WHERE Salary IN (
+WHERE Salary NOT IN (
 	SELECT MIN(Salary)
 	FROM Employees
 	GROUP BY JobId
@@ -349,6 +349,8 @@ WHERE Salary IN (
 	FROM Employees
 	GROUP BY DepartmentID
 )
+
+Select * From Employees
 
 /*Find the names (first_name, last_name), salary of the employees whose salary greater than average salary of all department. */
 SELECT FirstName, LastName, Salary
@@ -494,7 +496,8 @@ WHERE DepartmentID=90
 /*Write a query to display the department ID, department name and manager first name. */
 SELECT d.DepartmentID, d.DepartmentName, e.FirstName AS 'ManagerName'
 FROM Departments AS d JOIN Employees AS e
-ON d.ManagerID = e.EmployeeID
+ON d.EmployeeID = e.ManagerID
+
 
 /*Write a query to display the department name, manager name, and city. */
 SELECT d.DepartmentName, e.FirstName AS 'ManagerName', l.City
