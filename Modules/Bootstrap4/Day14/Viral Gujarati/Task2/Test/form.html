@@ -57,15 +57,16 @@
                  var inputlastname= document.getElementById("lastname");
                  var inputphone= document.getElementById("phone");
                 // var inputcity= document.getElementById("city");
-                 
+
                  localStorage.setItem("firstname", inputfirstname.value);
                  localStorage.setItem("lastname", inputlastname.value);
                  localStorage.setItem("phone", inputphone.value);
-                 
-                 //localStorage.setItem("city", inputcity.value);                };
+
+                 //localStorage.setItem("city", inputcity.value);         
+                        };
 
             </script>
-        
+
         <style>
             * {
                 background-color:whitesmoke;
@@ -74,8 +75,8 @@
                 form {border: 3px solid whitesmoke}
 
             body { font-size: large;}
-           
-            
+
+
             input[type=text], 
             input[type=lname],
             input[type=tel] 
@@ -112,7 +113,7 @@
 
     <label for="phone" id="phone">Phone number:</label>
     <input type="tel" id="phone" name="phone" placeholder="12345-67899" pattern="[0-9]{5}-[0-9]{5}" required><br><br>
-   
+
     Select Country: <select name="state" id="countySel" size="1" id="city">
         <option value="" selected="selected">Select Country</option>
         </select>
@@ -134,4 +135,4 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </body>
-</html>
+</html> 
