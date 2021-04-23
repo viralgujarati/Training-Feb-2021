@@ -20,7 +20,6 @@ namespace DelegateT_1
             int recarea(int l, int b)
             {
                 int area = l * b;
-                int peri = 2 * (l + b);
                 return area;
             }
         }
