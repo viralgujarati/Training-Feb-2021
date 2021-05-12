@@ -30,7 +30,9 @@ console.log(emp);
 }
 
 //Delete employee
-emp.pop(emp)
+function Deleteemp(){
+return emp.pop();
+}
 
 //find full name of employee:
 function findfullName() {
@@ -70,8 +72,10 @@ function employeePF(){
 
 InsertEmp();
 findfullName();
+Deleteemp();
 extractAdd();
 employeePF();
+
 
 
 // //get employees
