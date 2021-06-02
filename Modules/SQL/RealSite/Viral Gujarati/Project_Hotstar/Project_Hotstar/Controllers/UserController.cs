@@ -10,12 +10,13 @@ using System.Threading.Tasks;
 
 namespace Project_Hotstar.Controllers
 {
-    [Authorize]
+    //[AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
-    { 
-         IUserRepo _userRepo;
+    {
+
+       private readonly IUserRepo _userRepo;
 
 
 
@@ -27,94 +28,96 @@ namespace Project_Hotstar.Controllers
 
 
         [HttpGet]
-        public IEnumerable<IUserRepo> GetUsers()
+        public IActionResult GetUsers()
         {
-            return GetUs.GetAll();
+            var users =  _userRepo.GetAll();
+
+            return Ok(users);
         }
 
 
 
-        [HttpGet("{id}")]
-        public ActionResult<IUserRepo> GetCinema(int id)
-        {
-            var userAccount = _userRepo.GetById(id);
+        //[HttpGet("{id}")]
+        //public ActionResult<IUserRepo> GetUsers(int id)
+        //{
+        //    var userAccount = _userRepo.GetById(id);
 
 
 
-            if (GetUsers == null)
-            {
-                return NotFound();
-            }
+        //    if (GetUsers == null)
+        //    {
+        //        return NotFound();
+        //    }
 
 
 
-            return cinema;
-        }
+        //    return _userRepo;
+        //}
 
 
 
-        [HttpPut("{id}")]
-        public ActionResult<Cinema> PutCinema(int id, Cinema cinema)
-        {
+        //[HttpPut("{id}")]
+        //public ActionResult<Cinema> PutCinema(int id, Cinema cinema)
+        //{
 
-            try
-            {
-                _userRepo.Update(cinema);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
-            return GetCinema(id);
+        //    try
+        //    {
+        //        _userRepo.Update(cinema);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e);
+        //    }
+        //    return GetCinema(id);
 
-        }
-
-
-
-        [HttpPost]
-        public ActionResult<> PostCinema(Cinema cinema)
-        {
-
-            try
-            {
-                .Create(cinema);
-            }
-            catch (DbUpdateException)
-            {
-                if (_userRepo.Any(e => e.CustomerId == cinema.CinemaId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-        
-
-
-            return CreatedAtAction("GetId", new { id = cinema.CustomerId }, cinema);
-        }
+        //}
 
 
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteCinema(int id)
-        {
-            var cinema = _userRepo.GetById(id);
-            if (cinema == null)
-            {
-                return NotFound();
-            }
+        //[HttpPost]
+        //public ActionResult<> PostCinema(Cinema cinema)
+        //{
+
+        //    try
+        //    {
+        //        .Create(cinema);
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (_userRepo.Any(e => e.CustomerId == cinema.CinemaId))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
 
 
-            _userRepo.Delete(cinema);
+        //    return CreatedAtAction("GetId", new { id = cinema.CustomerId }, cinema);
+        //}
 
 
 
-            return NoContent();
-        }
+        //[HttpDelete("{id}")]
+        //public IActionResult DeleteCinema(int id)
+        //{
+        //    var cinema = _userRepo.GetById(id);
+        //    if (cinema == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+
+
+        //    _userRepo.Delete(cinema);
+
+
+
+        //    return NoContent();
+        //}
 
 
 

@@ -10,6 +10,8 @@ namespace Project_Hotstar.Repo.Repository
 {
     public class UserRepo : GenericRepository<UserAccount>, IUserRepo
     {
+
+
         public UserRepo(HotstarDBContext context) : base(context)
         {
 

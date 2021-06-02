@@ -12,7 +12,7 @@ using Project_Hotstar.Models;
 namespace Project_Hotstar.Repo.Repository
 {
     //generic repository - interface repository
-    public abstract class GenericRepository<T> : IGenericInterface<T> where T : class
+    public  class GenericRepository<T> : IGenericInterface<T> where T : class
     {
         protected readonly HotstarDBContext context;
         public GenericRepository(HotstarDBContext _context)
@@ -82,6 +82,7 @@ namespace Project_Hotstar.Repo.Repository
         {
             context.Entry(entity).State = EntityState.Modified;
             context.SaveChanges();
+
         }
     }
 }

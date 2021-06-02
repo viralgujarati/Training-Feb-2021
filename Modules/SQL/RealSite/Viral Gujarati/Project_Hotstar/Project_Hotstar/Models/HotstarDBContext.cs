@@ -9,11 +9,9 @@ using Project_Hotstar.Models;
 
 namespace Project_Hotstar.Models
 {
-    public partial class HotstarDBContext : DbContext /*IdentityDbContext<ApplicationUser>*/
+    public partial class HotstarDBContext :  IdentityDbContext<ApplicationUser>
     {
-        public HotstarDBContext()
-        {
-        }
+        
 
         public HotstarDBContext(DbContextOptions<HotstarDBContext> options)
             : base(options)
@@ -27,18 +25,20 @@ namespace Project_Hotstar.Models
         public virtual DbSet<Subscription> Subscriptions { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-////#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//                optionsBuilder.UseSqlServer("Server=.\\SQLExpress01;Database=HotstarDB;Trusted_Connection=True;");
-//            }
-//        }
+        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        {
+        //            if (!optionsBuilder.IsConfigured)
+        //            {
+        ////#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        //                optionsBuilder.UseSqlServer("Server=.\\SQLExpress01;Database=HotstarDB;Trusted_Connection=True;");
+        //            }
+        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AI");
+
+            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Genre>(entity =>
             {
@@ -100,7 +100,7 @@ namespace Project_Hotstar.Models
                     .IsRequired()
                     .HasMaxLength(30);
             });
-           
+
             modelBuilder.Entity<Subscription>(entity =>
             {
                 entity.HasNoKey();
@@ -141,9 +141,7 @@ namespace Project_Hotstar.Models
                     .HasMaxLength(30);
             });
 
-            OnModelCreatingPartial(modelBuilder);
-        }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+        }
     }
 }

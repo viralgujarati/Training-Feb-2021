@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Project_Hotstar.Authentication
 {
-    public class RegisterMode
+    public class RegisterModel
     {
         [Required(ErrorMessage = "User Name is required")]
         public string Username { get; set; }

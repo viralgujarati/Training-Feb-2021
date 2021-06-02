@@ -38,60 +38,49 @@ namespace Project_Hotstar
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFrameworkSqlServer();
-            services.AddDbContext<ApplicationDbContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")); });
-            services.AddDbContext<HotstarDBContext>((serviceProvider, options) => { options.UseSqlServer(Configuration.GetConnectionString("Connect")); });
-            services.AddTransient<IUserRepo, UserRepo>();
-            //services.AddTransient<I, Repo>();
             services.AddControllers();
 
+            // for dbContext
+            services.AddDbContext<HotstarDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ConnStr")));
 
+            // For identity
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<HotstarDBContext>().AddDefaultTokenProviders();
 
-
-
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                    .AddEntityFrameworkStores<ApplicationDbContext>()
-                    .AddDefaultTokenProviders();
-
-            // Adding Authentication  
+            // Adding Authentication and Adding Jwt Bearer
             services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options =>
+            {
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
                 {
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                })
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    ValidAudience = Configuration["JWT:Audience"],
+                    ValidIssuer = Configuration["JWT:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
+                };
 
-                // Adding Jwt Bearer  
-                .AddJwtBearer(options =>
-                {
-                    options.SaveToken = true;
-                    options.RequireHttpsMetadata = false;
-                    options.TokenValidationParameters = new TokenValidationParameters()
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidAudience = Configuration["JWT:ValidAudience"],
-                        ValidIssuer = Configuration["JWT:ValidIssuer"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JWT:Secret"]))
-                    };
-                });
-        }
-        
+            });
 
-
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+            services.AddTransient<IUserRepo, UserRepo>();
+            services.AddTransient<ISubscriptionRepo, SubscriptionRepo>();
+            services.AddTransient<IGenre, GenreRepo>();
+            }
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
