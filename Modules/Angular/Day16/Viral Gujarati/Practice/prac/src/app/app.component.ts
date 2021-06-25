@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'prac';
+  title = 'demo';
+  active="active1";
+
+  getClass() {
+    return "active1"
+  }
 }

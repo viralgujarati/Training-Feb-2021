@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -15,8 +16,11 @@ namespace ProjectHotstar.Models
             Tvs = new HashSet<Tv>();
         }
 
+        
         public int ContentId { get; set; }
         public string Title { get; set; }
+
+        public string Url { get; set; }
         public string Episode { get; set; }
         public string Genre { get; set; }
         public DateTime? ReleaseDate { get; set; }

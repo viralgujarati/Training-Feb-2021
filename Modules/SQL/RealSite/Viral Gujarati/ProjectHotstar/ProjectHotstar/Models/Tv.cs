@@ -10,6 +10,12 @@ namespace ProjectHotstar.Models
         public int Tvid { get; set; }
         public int? ContentId { get; set; }
         public string Title { get; set; }
+#nullable enable
+
+        public string? TvImage { get; set; }
+
+#nullable disable
+
         public string ChannelName { get; set; }
         public string ChannelLanguage { get; set; }
 

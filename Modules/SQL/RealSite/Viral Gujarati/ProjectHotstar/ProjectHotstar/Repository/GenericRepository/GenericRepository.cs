@@ -1,4 +1,5 @@
-﻿using ProjectHotstar.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectHotstar.Models;
 using ProjectHotstar.Repository.IGenericRepository;
 using System;
 using System.Collections.Generic;
@@ -10,45 +11,64 @@ namespace ProjectHotstar.Repository.GenericRepository
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly HotstarContext _context;
-        public GenericRepository(HotstarContext context)
+        protected readonly HotstarContext context;
+        public GenericRepository(HotstarContext _context)
         {
-            _context = context;
+            context = _context;
         }
 
-        public void Add(T entity)
+        public bool Any(Func<T, bool> predicate)
         {
-            _context.Set<T>().Add(entity);
+            return context.Set<T>().Any(predicate);
         }
 
-        public void AddRange(IEnumerable<T> entities)
+        public bool Any()
         {
-            _context.Set<T>().AddRange(entities);
+            return context.Set<T>().Any();
         }
 
-        public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        public bool Any(int id)
         {
-            return _context.Set<T>().Where(expression);
+            throw new NotImplementedException();
+        }
+
+        public int Count(Func<T, bool> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Create(T entity)
+        {
+            context.Add(entity);
+            context.SaveChanges();
+        }
+
+        public void Delete(T entity)
+        {
+            context.Remove(entity);
+            context.SaveChanges();
+        }
+
+        public IEnumerable<T> Find(Func<T, bool> predicate)
+        {
+            return context.Set<T>().Where(predicate);
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _context.Set<T>().ToList();
+            return context.Set<T>();
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
-            return _context.Set<T>().Find(id);
+            return context.Set<T>().Find(id);
         }
 
-        public void Remove(T entity)
+        public void Update(T entity)
         {
-            _context.Set<T>().Remove(entity);
-        }
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
 
-        public void RemoveRange(IEnumerable<T> entities)
-        {
-            _context.Set<T>().RemoveRange(entities);
         }
     }
 }

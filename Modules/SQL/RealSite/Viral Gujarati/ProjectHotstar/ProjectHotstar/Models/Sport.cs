@@ -9,6 +9,12 @@ namespace ProjectHotstar.Models
     {
         public int SportsId { get; set; }
         public int? ContentId { get; set; }
+#nullable enable
+
+        public string? SportsImage { get; set; }
+
+#nullable disable
+
         public string SportsType { get; set; }
         public string SportsTitle { get; set; }
 

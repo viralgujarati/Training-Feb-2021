@@ -15,14 +15,16 @@ namespace ProjectHotstar.Models
 
         public int CustomerId { get; set; }
         public string Name { get; set; }
-        public int PhoneNumber { get; set; }
+#nullable enable
+        public string? PhoneNumber { get; set; }
+#nullable disable
         public string Email { get; set; }
         public string Address { get; set; }
         public DateTime? Dob { get; set; }
-
         public string ApplicationUserId { get; set; }
 
-        public ApplicationUser applicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
+
 
         public virtual ICollection<Subscription> Subscriptions { get; set; }
     }

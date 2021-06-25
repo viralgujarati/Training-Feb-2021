@@ -18,7 +18,6 @@ namespace ProjectHotstar.Models
             : base(options)
         {
         }
-
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<Movie> Movies { get; set; }
         public virtual DbSet<News> News { get; set; }
@@ -29,22 +28,25 @@ namespace ProjectHotstar.Models
         public virtual DbSet<Tv> Tvs { get; set; }
         public virtual DbSet<UserAccount> UserAccounts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS01;Database=Hotstar;Trusted_Connection=True;");
-            }
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+            //optionsBuilder.UseSqlServer("Server=VIRALGUJARATI\\SQLEXPRESS01;Database=Hotstar;Trusted_Connection=True;");
+
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+//            }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AI");
-
             base.OnModelCreating(modelBuilder);
 
+            
+            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AI");
 
+            
+           
             modelBuilder.Entity<Content>(entity =>
             {
                 entity.ToTable("Content");
@@ -225,6 +227,8 @@ namespace ProjectHotstar.Models
 
                 entity.ToTable("UserAccount");
 
+                entity.HasIndex(e => e.ApplicationUserId, "IX_UserAccount_ApplicationUserId");
+
                 entity.HasIndex(e => e.Email, "UQ__UserAcco__A9D105342E192F09")
                     .IsUnique();
 
@@ -245,11 +249,13 @@ namespace ProjectHotstar.Models
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasMaxLength(30);
+
+                entity.HasOne(d => d.ApplicationUser)
+                    .WithOne(p => p.UserAccount);
+                    //.HasForeignKey(d => d.ApplicationUserId);
             });
 
-            //OnModelCreatingPartial(modelBuilder);
         }
 
-        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

@@ -8,15 +8,19 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Project_Hotstar.Authentication;
 using Project_Hotstar.Models.Authentication;
+using ProjectHotstar.Models;
+using ProjectHotstar.Repository.IGenericRepository;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectHotstar.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class AuthenticateController : ControllerBase
@@ -24,12 +28,18 @@ namespace ProjectHotstar.Controllers
         private readonly UserManager<ApplicationUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IUserAccount _userAccount;
 
-        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+
+        public AuthenticateController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration, IUserAccount userAccount)
+        
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             _configuration = configuration;
+            _userAccount = userAccount;
+
+
         }
 
         [HttpPost]
@@ -62,14 +72,32 @@ namespace ProjectHotstar.Controllers
                     signingCredentials: new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256)
                     );
 
+
+                var appUser = _userAccount.Find(u => u.ApplicationUserId == user.Id).FirstOrDefault();
+                
+
+
+                var response = new Response { Status = "Success", Message = "Login successfully!" };
                 return Ok(new
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
+                    response.Status,
+                    response.Message,
+                    userId = appUser.CustomerId
                 });
             }
-            return Unauthorized();
+            return Ok(new Response { Status = "Error", Message = "Login id or password incorrect" });
         }
+        //        var res = new Response { Status = "Success", Message = "User Login Sucessfully!" };
+        //        return Ok(new
+        //        {
+        //            token = new JwtSecurityTokenHandler().WriteToken(token),
+        //            expiration = token.ValidTo,
+        //            response = res  
+        //        });
+        //    }
+        //    return Unauthorized();
+        //}
 
         [HttpPost]
         [Route("register")]
@@ -77,7 +105,8 @@ namespace ProjectHotstar.Controllers
         {
             var userExists = await userManager.FindByNameAsync(model.Username);
             if (userExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User already exists!" });
+                return StatusCode(StatusCodes.Status500InternalServerError, 
+                    new Response { Status = "Error", Message = "User already exists!" });
 
             ApplicationUser user = new ApplicationUser()
             {
@@ -85,9 +114,27 @@ namespace ProjectHotstar.Controllers
                 SecurityStamp = Guid.NewGuid().ToString(),
                 UserName = model.Username
             };
+
             var result = await userManager.CreateAsync(user, model.Password);
+
+
+
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
+
+            //for name in fn 
+
+            //var appUser = _userAccount.Find(u => u.ApplicationUserId == user.Id).First();
+            
+            var appUser = new UserAccount();
+            appUser.ApplicationUserId = user.Id;
+            appUser.Name = model.Name;
+            appUser.Email = model.Email;
+            //appUser.PhoneNumber = model.Phone;
+            appUser.Address = model.Address;
+            _userAccount.Create(appUser);
+              
+
 
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }

@@ -180,6 +180,9 @@ namespace ProjectHotstar.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ContentId");
 
                     b.ToTable("Content");
@@ -196,6 +199,9 @@ namespace ProjectHotstar.Migrations
                     b.Property<int?>("ContentId")
                         .HasColumnType("int")
                         .HasColumnName("ContentID");
+
+                    b.Property<string>("MovieImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MovieLanguage")
                         .IsRequired()
@@ -230,6 +236,9 @@ namespace ProjectHotstar.Migrations
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("NewsImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NewsTitle")
                         .IsRequired()
@@ -319,6 +328,9 @@ namespace ProjectHotstar.Migrations
                         .HasColumnType("int")
                         .HasColumnName("ContentID");
 
+                    b.Property<string>("SportsImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SportsTitle")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -394,6 +406,9 @@ namespace ProjectHotstar.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("TvImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Tvid");
 
                     b.HasIndex("ContentId");
@@ -431,13 +446,18 @@ namespace ProjectHotstar.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<int>("PhoneNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId")
                         .HasName("PK__UserAcco__A4AE64B8ADB0F632");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique()
+                        .HasFilter("[ApplicationUserId] IS NOT NULL");
+
+                    b.HasIndex(new[] { "ApplicationUserId" }, "IX_UserAccount_ApplicationUserId")
+                        .HasDatabaseName("IX_UserAccount_ApplicationUserId1");
 
                     b.HasIndex(new[] { "Email" }, "UQ__UserAcco__A9D105342E192F09")
                         .IsUnique();
@@ -630,11 +650,11 @@ namespace ProjectHotstar.Migrations
 
             modelBuilder.Entity("ProjectHotstar.Models.UserAccount", b =>
                 {
-                    b.HasOne("Project_Hotstar.Models.Authentication.ApplicationUser", "applicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
+                    b.HasOne("Project_Hotstar.Models.Authentication.ApplicationUser", "ApplicationUser")
+                        .WithOne("UserAccount")
+                        .HasForeignKey("ProjectHotstar.Models.UserAccount", "ApplicationUserId");
 
-                    b.Navigation("applicationUser");
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("ProjectHotstar.Models.Content", b =>
@@ -658,6 +678,11 @@ namespace ProjectHotstar.Migrations
             modelBuilder.Entity("ProjectHotstar.Models.UserAccount", b =>
                 {
                     b.Navigation("Subscriptions");
+                });
+
+            modelBuilder.Entity("Project_Hotstar.Models.Authentication.ApplicationUser", b =>
+                {
+                    b.Navigation("UserAccount");
                 });
 #pragma warning restore 612, 618
         }
