@@ -112,3 +112,22 @@ address {
     /* width: 900px; */
 }
 
+
+.login-btn {
+    float: right;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0px;
+    margin-left: 15px;
+    opacity: 1;
+    font-size: 14px;
+    height: 28px;
+    width: 70px;
+    line-height: 24px;
+    border-radius: 4px;
+  }
+  

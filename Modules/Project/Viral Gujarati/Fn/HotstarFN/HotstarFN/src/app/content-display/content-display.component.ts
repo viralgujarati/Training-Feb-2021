@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ContentDisplayService } from '../content-display.service';
+
 import { ActivatedRoute } from '@angular/router';
-import { Content } from '../content-display';
+import { ContentService } from '../content.service';
+
 
 
 @Component({
@@ -13,18 +14,21 @@ import { Content } from '../content-display';
 
 export class ContentDisplayComponent implements OnInit {
   contentId: number = 0;
-  contentdetail?: Content;
+  contentdetail?: any;
 
   constructor(private route: ActivatedRoute
-    , private contentDisplayService: ContentDisplayService) { }
+    , private contentService: ContentService) { }
 
 
 
   ngOnInit(): void {
     this.contentId = parseInt(this.route.snapshot.paramMap.get('id')!);
     console.log(this.contentId);
-    this.contentDisplayService.getContentById(this.contentId).subscribe(
-      res => {
+    this.contentService.getContentById(this.contentId).subscribe(
+      (res: any) => {
+        if(res.status=="fail"){
+          alert(res.message);
+        }
         this.contentdetail = res;
         console.log(res);
         console.log(this.contentdetail.url);

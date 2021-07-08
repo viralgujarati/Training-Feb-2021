@@ -1,0 +1,77 @@
+<div class="container-fluid bg-light p-3 m-2 "><br><br>
+    <form [formGroup]="form">
+        <div class="from-group">
+            <label>ContentLink</label>
+            <input type="text" class="form-control" formControlName="ContentLink">
+            <span class="error" *ngIf="ContentLink.invalid && ContentLink.touched">ContentLink is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">ContentPosterLink</label>
+            <input type="text" class="form-control" formControlName="ContentPosterLink">
+            <span class="error" *ngIf="ContentPosterLink.invalid && ContentPosterLink.touched">ContentPosterLink is
+                required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">Title</label>
+            <input type="text" class="form-control" formControlName="Title">
+            <span class="error" *ngIf="Title.invalid && Title.touched">Title is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">Genre</label>
+            <input type="text" class="form-control" formControlName="Genre">
+            <span class="error" *ngIf="Genre.invalid && Genre.touched">Genre is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">Description</label>
+            <input type="text" class="form-control" formControlName="Description">
+            <span class="error" *ngIf="Description.invalid && Description.touched">Description is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">ReleaseDate</label>
+            <input type="date" class="form-control" formControlName="ReleaseDate">
+            <span class="error" *ngIf="ReleaseDate.invalid && ReleaseDate.touched">ReleaseDate is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">SuitableAge</label>
+            <input type="text" class="form-control" formControlName="SuitableAge">
+            <span class="error" *ngIf="SuitableAge.invalid && SuitableAge.touched">SuitableAge is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">SubCategoryId</label>
+            <input type="text" class="form-control" formControlName="SubCategoryId">
+            <span class="error" *ngIf="SubCategoryId.invalid && SubCategoryId.touched">SubCategoryId is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">CategoryId</label>
+            <input type="text" class="form-control" formControlName="CategoryId">
+            <span class="error" *ngIf="CategoryId.invalid && CategoryId.touched">CategoryId is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">PlanId</label>
+            <input type="text" class="form-control" formControlName="PlanId">
+            <span class="error" *ngIf="PlanId.invalid && PlanId.touched">PlanId is required</span>
+
+        </div>
+        <div class="from-group">
+            <label for="exampleInputUsername">ContentLanguage</label>
+            <input type="text" class="form-control" formControlName="ContentLanguage">
+            <span class="error" *ngIf="ContentLanguage.invalid && ContentLanguage.touched">ContentLanguage is
+                required</span>
+
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" (click)="postcontent()">Submit</button><br>
+        <span *ngIf="form.invalid" class="error">All valid Detail require To Post Content</span>
+    </form>
+</div>
+
+<div class="bg-light">{{form.value | json}}
+</div>

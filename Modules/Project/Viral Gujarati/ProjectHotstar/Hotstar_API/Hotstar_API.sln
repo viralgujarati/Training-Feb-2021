@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotstar_API", "Hotstar_API\Hotstar_API.csproj", "{1DEB0E94-32D8-42ED-B9E6-0EA7706EA201}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DEB0E94-32D8-42ED-B9E6-0EA7706EA201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEB0E94-32D8-42ED-B9E6-0EA7706EA201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEB0E94-32D8-42ED-B9E6-0EA7706EA201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEB0E94-32D8-42ED-B9E6-0EA7706EA201}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {356131F5-2F06-4FDC-8016-8A90453A756B}
+	EndGlobalSection
+EndGlobal

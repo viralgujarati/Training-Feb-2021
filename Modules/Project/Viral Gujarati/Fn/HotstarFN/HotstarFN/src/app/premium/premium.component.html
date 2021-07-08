@@ -1,0 +1,22 @@
+<div class="container-fluid ">
+
+    <br>
+    <br>
+  
+<div class="text-light"></div>
+    <div class="container-fluid p-3">
+        <div class="row p-2">
+            <div class="img col-md-2 p-2 md-2 m-3 " *ngFor="let movie of movies">
+
+                <a routerLink="/content/{{movie.contentId}}"> 
+                    <img src="{{movie.contentPosterLink}}" width="200px" height="150px" class="rounded">
+                </a>
+                <div class="row ">
+                    <div>
+                        <a class="nav-link rounded text-info pb-0 mb-0">{{movie.title}}</a>
+                        <!-- <small class="pl-3 py-0 my-0">{{movie.movieLanguage}}</small><br> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

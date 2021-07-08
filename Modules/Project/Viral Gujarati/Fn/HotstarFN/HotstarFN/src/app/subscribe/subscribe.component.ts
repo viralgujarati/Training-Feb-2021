@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscribeService } from '../subscribe.service';
+
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -16,17 +17,16 @@ export class SubscribeComponent implements OnInit {
   planId :number;
 
   constructor(
-    private subscriptionService: SubscribeService, private router : Router) {}
+    private userService: UserService,
+    private router : Router) {}
 
   ngOnInit(): void {
 
     //to get data from local storage 
     this.userId = localStorage.getItem('userId');
 
-    this.subscriptionService.getAll().subscribe(data=>{
-      console.log(data);
-    }
-    );
+   
+    
   }
  //method to get value from radiobox
 changeCheckbox(value: any){
@@ -36,14 +36,17 @@ changeCheckbox(value: any){
 
 
 //for subscription 
-subscribe(id:number){
+subscribe(){
   // DoSubscribe(customerId:number, planId:number){
   //   return this.httpClient.post(`${this.apiServer}/${customerId}`,planId);
   //     }
   
   console.log(this.userId,this.planId);
-    this.subscriptionService.DoSubscribe(this.userId,this.planId).subscribe(data=>{
-    alert(" Your Selected Subscription Plan : " + this.planId);
+    this.userService.DoSubscribe(this.userId,this.planId).subscribe(
+    (res : any)=>{
+      console.log(res);
+      alert(res.message);
+    this.router.navigate(['']);
 
     // this.router.navigate(['/home']); 
   }

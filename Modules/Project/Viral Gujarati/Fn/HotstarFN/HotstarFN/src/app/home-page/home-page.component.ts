@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
-import { Subscribe } from '../subscribe';
-import { Subscriber } from 'rxjs';
-import { SubscribeService } from '../subscribe.service';
-import { AuthenticationService } from '../authentication.service';
-
-
+import { ContentService } from '../content.service';
+import { HomeService } from '../home.service';
 
 @Component({
   selector: 'app-home-page',
@@ -15,40 +9,57 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-//decaring variable 
-  Subscribe: Subscribe[] = [];
+  title = 'HotstarFN';
 
+  //decaring variable 
+  Subscribe: any;
+  getAllMovieSub: any;
+  getAllShowsSub: any;
+  GetAllSportsSub: any;
 
   constructor(private route: Router,
-    private subscribe: SubscribeService,
-    private authservice: AuthenticationService
+    private homeService: HomeService,
+    private contentService: ContentService
+
   ) {
   }
+  movies: any;
+  sports: any;
+  shows: any;
+  top: any;
 
   ngOnInit(): void {
 
-    this.subscribe.getAll().subscribe((data: Subscribe[]) => {
-      console.log(data);
-      this.Subscribe = data;
-    })
-  }
+    var getAllMoviesSub = this.homeService.GetAllMovies().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.top = res.splice(0, 5);
+        getAllMoviesSub.unsubscribe();
+      });
 
-  login() {
-    this.route.navigate(['login']);
-  }
+    var getAllMovieSub = this.contentService.getAllMovie().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.movies = res;
+        this.getAllMovieSub.unsubscribe();
+      }
+    );
+    var GetAllSportsSub = this.homeService.GetAllSports().subscribe(
+      res => {
+        console.log(res);
+        this.sports = res;
+        this.GetAllSportsSub.unsubscribe();
+      },
+      err => console.log(err)
+    );
 
-  register() {
-    this.route.navigate(['register']);
-  }
-
-
-  IsLoggedIn(){
-    return !!localStorage.getItem('token')
-
-  }
-
-  logout(){
-    localStorage.clear()
-    this.route.navigate(['/']);
+    var GetAllShowsSub = this.homeService.GetAllShows().subscribe(
+      res => {
+        console.log(res);
+        this.shows = res;
+        this.getAllShowsSub.unsubscribe();
+      },
+      err => console.log(err)
+    );
   }
 }

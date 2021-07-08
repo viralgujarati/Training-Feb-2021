@@ -10,7 +10,6 @@
   font-size: 16px;
   font-weight: 400;
   text-transform: none;
-  color: var(--TEXT_COLOR_L1);
   cursor: pointer;
   line-height: normal;
 }
@@ -18,99 +17,13 @@
 .nav-item {
   padding: 10px;
   padding-right: 20px;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 400;
   text-transform: none;
   cursor: pointer;
   line-height: normal;
 }
 
-footer {
-  background: #272727 none repeat scroll 0 0;
-}
-footer.container {
-  width: 100%;
-  padding: 34px 0 24px;
-}
-footer h2 {
-  color: #fff;
-  font-size: 20px;
-}
-footer p {
-  color: #fff;
-  text-indent: 25px;
-  font-size: 13px;
-}
-.link-list li {
-  border-top: 1px solid #353535;
-}
-.link-list a {
-  color: #eee;
-  display: inline-block;
-  font-size: 11px;
-  padding: 6px 0;
-  text-transform: uppercase;
-}
-.link-list li i {
-  color: #bbb;
-  float: right;
-  margin-top: 10px;
-}
-
-address {
-  color: #eee;
-  font-style: normal;
-  line-height: 1.42857;
-  margin-bottom: 20px;
-  margin-left: 50px;
-}
-
-.copy {
-  background: #222 none repeat scroll 0 0;
-  padding: 22px;
-}
-.copy a i {
-  color: #fff;
-  float: right;
-  font-size: 24px;
-  width: 50px;
-}
-.copy a {
-  color: #fff;
-  padding-top: 5px;
-}
-
-.copy,
-h3 {
-  color: white;
-  font-size: 20px;
-  padding: inherit;
-  padding-left: 16px;
-  padding-right: 20px;
-}
-
-.search-container input {
-  box-sizing: border-box;
-
-  position: relative;
-  width: 240px;
-  height: 32px;
-  border: none;
-  border-bottom: 1px solid whitesmoke;
-  color: grey;
-  font-size: 16px;
-  outline: 0;
-  padding: 0 28px 0 0px;
-  border-radius: 0;
-  background: none;
-  -webkit-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  -o-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  -webkit-opacity: 1;
-  -moz-opacity: 1;
-  -o-opacity: 1;
-  opacity: 1;
-}
 
 button {
   overflow: visible;
@@ -196,3 +109,4 @@ button {
   width: 180px;
   height: 260px;
 }
+

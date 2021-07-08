@@ -1,16 +1,16 @@
+<br>
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
-                <button type="button" class="close" routerLink="" onclick="" data-dismiss="modal"
-                    aria-label="Close">
+                <button type="button" class="close" routerLink="" onclick="" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="form" (ngSubmit)="submit()">
+                <form [formGroup]="form">
 
                     <div class="from-group">
                         <label for="exampleInputName">Name</label>
@@ -33,6 +33,12 @@
                         <span class="error" *ngIf="Email.invalid && Email.touched">Email is required</span>
                     </div>
 
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone Number</label>
+                        <input type="text" class="form-control" formControlName="Phone">
+                        <small id="phone" class="form-text text-muted"></small>
+                        <span class="error" *ngIf="Phone.invalid && Phone.touched">Phone is required</span>
+                    </div>
 
 
                     <div class="form-group">
@@ -41,19 +47,19 @@
                         <span class="error" *ngIf="Password.invalid && Password.touched">Password</span>
 
                     </div>
+
                     <div class="from-group">
                         <label for="exampleInputaddress">Address</label>
                         <input type="text" class="form-control" formControlName="Address">
                         <span class="error" *ngIf="Address.invalid && Address.touched">Address is required</span>
 
-                    </div>
+                    </div> <br>
 
-                    <button type="submit" class="btn" data-dismiss="modal">Submit</button><br>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" data-dismiss="modal"
+                        (click)="registerUser()">Submit</button><br>
                     <span *ngIf="form.invalid" class="error">All valid Detail require for Login</span>
-
                 </form>
             </div>
-        
         </div>
     </div>
 </div>

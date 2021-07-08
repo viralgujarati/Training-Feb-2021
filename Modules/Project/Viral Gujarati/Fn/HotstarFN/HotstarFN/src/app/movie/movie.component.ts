@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesService } from '../movies.service';
+
+import { Router } from '@angular/router';
+import { ContentService } from '../content.service';
+
 
 @Component({
   selector: 'app-movie',
@@ -7,16 +10,27 @@ import { MoviesService } from '../movies.service';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
-
-  constructor(private movieService: MoviesService) { }
-
   movies: any;
+  getAllMovieSub: any;
+
+  constructor(private contentService: ContentService,
+    private route: Router) { }
+  
   ngOnInit(): void {
-    this.movieService.getAllMovie().subscribe(
+    var getAllMovieSub = this.contentService.getAllMovie().subscribe(
       res => {
         console.log(res);
         this.movies = res;
+        this.getAllMovieSub.unsubscribe();
       }
     )
+  }
+
+  
+  login() {
+    this.route.navigate(['login']);
+  }
+  IsLoggedIn(){
+    return !!localStorage.getItem('token')
   }
 }

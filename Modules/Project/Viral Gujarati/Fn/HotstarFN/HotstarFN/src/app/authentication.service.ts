@@ -1,55 +1,53 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
-import{ environment } from '../environments/environment';
-
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  // url from api
-  // private _registerUrl = "https://localhost:44303/api/Authenticate/register";
-  // private _loginUrl = "https://localhost:44308/api/Authenticate/login";
+  private _baseUrl = environment.baseUrl;
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
+
+  isLoggedIn: boolean = false;
+
+  constructor(private http: HttpClient, private route: Router) { }
+
+  registerUser(user: any) {
+    return this.http.post<any>(`${this._baseUrl}/authenticate/register`, user);
+  }
+
+  confirmEmail(model: any) {
+
+    return this.http.post(`${this._baseUrl}/authenticate/verifyEmail`, model);
   }
 
 
-  private Url = environment.baseUrl; 
-  // "https://localhost:44308/api";
 
-  constructor(private http : HttpClient) { }
-
-  login(data: any):Observable<any>{
-    return this.http.post(`${this.Url}/authenticate/login`,data);
-      }
-
-  register(data: any):Observable<any>{
-    return this.http.post(`${this.Url}/authenticate/register`,data);
+  loginUser(user: any) {
+    return this.http.post(`${this._baseUrl}/authenticate/login`, user);
   }
-//true flase 
-  loggedIn(){
+
+  loggedIn() {
     return !!localStorage.getItem('token');
   }
+  logoutUser() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+    this.route.navigate(['']);
+  }
 
+  getToken() {
+    return localStorage.getItem('token');
+  }
 
+  resetPasswordToken(form: any) {
+    return this.http.post(`${this._baseUrl}/authenticate/ResetPasswordToken`, form);
+  }
 
-  // registerUser(user : any){
-  //   return this.http.post<any>(this._registerUrl,user);
-  // }
-  // loginUser(user : any){
-  //   return this.http.post(this._loginUrl, user);
-  // }
-  // loggedIn(){
-  //   return !!localStorage.getItem('token');
-  // }
-
-  // getToken(){
-  //   return localStorage.getItem('token');
-  // }
+  resetPassword(resetForm: any) {
+    return this.http.post(`${this._baseUrl}/authenticate/ResetPassword`, resetForm);
+  }
 }

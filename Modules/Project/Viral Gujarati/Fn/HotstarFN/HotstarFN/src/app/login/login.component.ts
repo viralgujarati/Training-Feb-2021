@@ -1,7 +1,10 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
+import { ContentService } from '../content.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,11 +15,18 @@ import { AuthenticationService } from '../authentication.service';
 export class LoginComponent implements OnInit {
 
   form: FormGroup | any;
-
+  movies: any;
   constructor(private authService: AuthenticationService,
+    private contentService : ContentService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.contentService.getAllMovie().subscribe(
+      res => {
+        console.log(res);
+        this.movies = res;
+      });
+      
     this.form = new FormGroup(
       {
         Username: new FormControl('', [Validators.required]),
@@ -37,15 +47,17 @@ export class LoginComponent implements OnInit {
   loginProcess() {
 
     if (this.form.valid) {
-      this.authService.login(this.form.value).subscribe(res => {
-
+      this.authService.loginUser(this.form.value).subscribe(
+        (res:any) => {
         if (res.token != undefined) {
-debugger
           localStorage.setItem('token', res.token);
           localStorage.setItem('userId', res.userId);
 
           this.router.navigate(['/home']);
-          alert(res.message);
+          setTimeout(() => {
+            alert(res.message);  
+          }, 500);
+          
         }
         else {
           alert(res.message);
@@ -59,5 +71,6 @@ debugger
 
   }
 }
+
 
 

@@ -1,1 +1,93 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <a class="navbar-brand" href="#">
+        <img src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
+          alt="Hotstar" style="width:115px; height: 45px; padding-bottom: 10px;">
+      </a>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">TV</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="Reload(3,'TV')">Star Plus</a>
+          <a class="dropdown-item" (click)="Reload(1,'TV')">HotStar Specials</a>
+          <a class="dropdown-item" (click)="Reload(2,'TV')">Star Jalsa</a>
+          <a class="dropdown-item" (click)="Reload(4,'TV')">Star Vijay</a>
+          <a class="dropdown-item" (click)="Reload(5,'TV')">Star Bharat</a>
+        </div>
+      </li>
+      <li class="nav-item  ">
+        <a class="nav-link" routerLink="movie" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Sports</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" (click)="Reload(10,'Sports')">Cricket</a>
+          <a class="dropdown-item" (click)="Reload(12,'Sports')">FootBall</a>
+          <a class="dropdown-item" (click)="Reload(11,'Sports')">Tennis</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown ">
+        <a class="nav-link " data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">News</a>
+      </li>
+      <li class="nav-item  ">
+        <a class="nav-link" routerLink="premium" role="button" aria-haspopup="true" aria-expanded="false">Premium</a>
+      </li>
+    </ul>
+    <!-- subscribe -->
+    <button type="button" class="subscribe-btn btn-primary " routerLink="/subscribe">
+      subscribe
+    </button>
+    <!-- Button trigger modal -->
+    <button type="button" class="login-btn btn-primary ml-auto" [class.d-none]='IsLoggedIn()' (click)='login()'
+      data-toggle="modal" data-target="#exampleModal">
+      Login
+    </button>
+
+    <button class="submit-btn btn-primary" type="submit" [class.d-none]='IsLoggedIn()' (click)='register()'
+      data-toggle="modal" data-target="#exampleModal1">
+      Register
+    </button>
+
+    <button class="submit-btn btn-primary" type="button " [class.d-none]='!IsLoggedIn()' (click)='logout()'>
+      Logout
+    </button>
+  </div>
+</nav>
+<br>
 <router-outlet></router-outlet>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class=" footer col-xl-5 col-xs-4 col-sm-12 col-sm-7 "
+        style="margin-left: -30px; margin-top: 10px; margin-right: 20px;">
+        <h2>About Disney+ HotStar</h2>
+        <p>
+          © 2021 STAR. All Rights Reserved. HBO, Home Box Office and all related channel and programming logos are
+          service marks of, and all related programming visuals and elements are the property of, Home Box Office,
+          Inc.
+          All rights reserved. </p>
+        <p>&copy; 2021, Viral Gujarati</p>
+      </div>
+      <div class="col-sm-4">
+        <ul class="list-unstyled link-list">
+          <img src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
+            alt="Hotstar" style="width:215px; height: 85px; padding-bottom: 10px;">
+        </ul>
+      </div>
+      <div class="copy">
+        <div class="container">
+          <h3>Contact With Us </h3>
+          <a href="https://twitter.com/DisneyPlusHS"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.facebook.com/DisneyPlusHotstar"><i class="fa fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

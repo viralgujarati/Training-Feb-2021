@@ -1,0 +1,15 @@
+﻿using Hotstar_API.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace Hotstar_API.Repository.IGenericRepository
+{
+    public interface IUserAccount : IGenericRepository<UserAccount>
+    {
+        public bool ValidateUser(string cred, int id);
+
+    }
+
+}
